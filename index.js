@@ -4,8 +4,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 var rooms = 0;
-var p1;
-var p2;
+
 
 app.use(express.static('.'));
 

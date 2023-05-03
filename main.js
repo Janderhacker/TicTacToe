@@ -175,7 +175,6 @@
       return this.moves >= 9;
     }
     announcewinner() {
-      const message = `${Player.getPlayerName()} didn't lose`;
       this.moves = 0;
       socket.emit('gameEnded', {
         room: this.getRoomid(),
