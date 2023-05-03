@@ -13,9 +13,9 @@
   var counter;
   var localroom;
   var old_room_code;
-  var xbox = document.getElementById("name_new");
-  var ps4 = document.getElementById("name_join");
-  var wii = document.getElementById("room");
+  var name_c_container = document.getElementById("name_new");
+  var name_j_container = document.getElementById("name_join");
+  var room_container = document.getElementById("room");
   var waitingforserver = true;
   document.getElementById("leave").addEventListener('click', leave);
   document.getElementById("rematch").addEventListener('click', rematch);
@@ -27,17 +27,17 @@
 
   $("#room").val("room-");
 
-  xbox.addEventListener("keyup", function (event) {
+  name_c_container.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       document.getElementById("new").click();
     }
   })
-  ps4.addEventListener("keyup", function (event) {
+  name_j_container.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       document.getElementById("join").click();
     }
   })
-  wii.addEventListener("keyup", function (event) {
+  room_container.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       document.getElementById("join").click();
     }
@@ -112,7 +112,7 @@
         const row = parseInt(this.id.split('_')[1][0], 10);
         const col = parseInt(this.id.split('_')[1][1], 10);
         if (!Player.getCurrentTurn() || !Game) {
-          const message = "you r not on ze macht"
+          const message = "It's not your turn"
           $("#value").val(message);
           return;
         }
@@ -160,7 +160,7 @@
           Game.announcewinner();
         }
       });
-      const tieMessage = 'You are have diedered both at ze same time';
+      const tieMessage = "It's a draw";
       if (this.checkTie()) {
         socket.emit('gameEnded', {
           room: this.getRoomid(),
@@ -180,18 +180,18 @@
         room: this.getRoomid(),
         player: Player.getPlayerName()
       });
-      $("#value").val(Player.getPlayerName() + " didn't not win");
+      $("#value").val(Player.getPlayerName() + " won!");
       $(".aftermatch").css('display', 'block')
       this.blockGame();
     }
     endGame(player, message) {
-      if (message != 'You are have diedered both at ze same time') {
-        $("#value").val(player + " didn't not win");
+      if (message != "It's a draw") {
+        $("#value").val(player + " won!");
         $(".aftermatch").css('display', 'block')
         this.blockGame();
       }
       else {
-        $("#value").val('You are have diedered both at ze same time');
+        $("#value").val("It's a draw");
         $(".aftermatch").css('display', 'block')
         this.blockGame();
       }

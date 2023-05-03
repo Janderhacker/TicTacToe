@@ -10,64 +10,66 @@
 </head>
 
 <body>
-  <!-- <button id="clrcookie">Clear Cookies</button> -->
-  <div class="menu">
-    <fieldset>
-      <legend>Create a new game:</legend>
-      <button id="new">New Game</button>
-      <input name="name" id="name_new" placeholder="Enter your name" type="text" required>
-    </fieldset>
-    <fieldset>
-      <legend>Join an existing game:</legend>
-      <button id="join">Join Game</button>
-      <input name="name" id="name_join" placeholder="Enter your name" type="text" required>
-      <input name="room" id="room" placeholder="Room ID" type="text" required>
-    </fieldset>
-  </div>
-  <h2 id="userHello"></h2>
-  <div class="gameboard">
-    <fieldset>
-      <legend>Game:</legend>
-      <input class="tile" readonly id="value"></input>
-      <table>
-        <tr>
-          <th><button class="tile" type="button" id="button_00">-</button></th>
-          <th><button class="tile" type="button" id="button_01">-</button></th>
-          <th><button class="tile" type="button" id="button_02">-</button></th>
-        </tr>
-        <tr>
-          <th><button class="tile" type="button" id="button_10">-</button></th>
-          <th><button class="tile" type="button" id="button_11">-</button></th>
-          <th><button class="tile" type="button" id="button_12">-</button></th>
-        </tr>
-        <tr>
-          <th><button class="tile" type="button" id="button_20">-</button></th>
-          <th><button class="tile" type="button" id="button_21">-</button></th>
-          <th><button class="tile" type="button" id="button_22">-</button></th>
-        </tr>
-      </table>
-    </fieldset>
-  </div>
-  <div class="aftermatch">
-    <fieldset>
-      <legend>Options:</legend>
-      <table>
-        <tr>
-          <th><button class="aftermatch" id="leave">Leave</button></tb>
-          <th><button class="aftermatch" id="rematch">Rematch</button></tb>
-        </tr>
-      </table>
-    </fieldset>
+  <div class="center">
+    <!-- <button id="clrcookie">Clear Cookies</button> -->
+    <div class="menu">
+      <fieldset>
+        <legend>Create a new game:</legend>
+        <button id="new">New Game</button>
+        <input name="name" id="name_new" placeholder="Enter your name" type="text" required>
+      </fieldset>
+      <fieldset>
+        <legend>Join an existing game:</legend>
+        <button id="join">Join Game</button>
+        <input name="name" id="name_join" placeholder="Enter your name" type="text" required>
+        <input name="room" id="room" placeholder="Room ID" type="text" required>
+      </fieldset>
+      <div>
+        <label class="switch">
+          <input id="darkmode" type="checkbox" onclick="toggleTheme()">
+          <span class="slider round"></span>
+        </label>
+        <a class=darkmode>Toggle Light/Dark Mode</a>
+      </div>
+    </div>
+    <h2 id="userHello"></h2>
+    <div class="gameboard">
+      <fieldset>
+        <legend>Game:</legend>
+        <input class="tile" readonly id="value"></input>
+        <table>
+          <tr>
+            <th><button class="tile" type="button" id="button_00">-</button></th>
+            <th><button class="tile" type="button" id="button_01">-</button></th>
+            <th><button class="tile" type="button" id="button_02">-</button></th>
+          </tr>
+          <tr>
+            <th><button class="tile" type="button" id="button_10">-</button></th>
+            <th><button class="tile" type="button" id="button_11">-</button></th>
+            <th><button class="tile" type="button" id="button_12">-</button></th>
+          </tr>
+          <tr>
+            <th><button class="tile" type="button" id="button_20">-</button></th>
+            <th><button class="tile" type="button" id="button_21">-</button></th>
+            <th><button class="tile" type="button" id="button_22">-</button></th>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+    <div class="aftermatch">
+      <fieldset>
+        <legend>Options:</legend>
+        <table>
+          <tr>
+            <th><button class="aftermatch" id="leave">Leave</button></tb>
+            <th><button class="aftermatch" id="rematch">Rematch</button></tb>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
   </div>
 </body>
 <footer>
-  <div>
-    <label class="switch">
-      <input id="darkmode" type="checkbox" onclick="toggleTheme()">
-      <span class="slider round"></span>
-    </label>
-    <a class=darkmode>Toggle Light/Dark Mode</a>
-  </div>
   <script src="node_modules/jquery/dist/jquery.js"></script>
   <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
   <script src="main.js"></script>
