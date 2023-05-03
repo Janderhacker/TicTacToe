@@ -18,6 +18,10 @@
   document.getElementById("rematch").addEventListener('click', rematch);
   //document.getElementById("clrcookie").addEventListener('click', clearcookies);
 
+  socket.on("connect_error", err => {
+    console.log(`connect_error due to ${err.message}`);
+  })
+
   $("#room").val("room-");
 
   xbox.addEventListener("keyup", function (event) {
