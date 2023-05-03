@@ -3,7 +3,7 @@
   var P1 = 'X', P2 = 'O';
   let Player;
   let Game;
-  var socket = io.connect('https://jellyfish-app-2wdfb.ondigitalocean.app/')
+  var socket = io.connect('jellyfish-app-2wdfb.ondigitalocean.app:8080/')
   var player1name; //host name
   var player2name; //user name
   var join;
