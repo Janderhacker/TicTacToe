@@ -21,9 +21,6 @@
   document.getElementById("rematch").addEventListener('click', rematch);
   //document.getElementById("clrcookie").addEventListener('click', clearcookies);
 
-  socket.on("connect_error", err => {
-    console.log(`connect_error due to ${err.message}`);
-  })
 
   $("#room").val("room-");
 
@@ -58,9 +55,9 @@
    * Game 
    */
   class player {
-    constructor(name, zeichen) {
+    constructor(name, mark) {
       this.name = name;
-      this.zeichen = zeichen;
+      this.mark = mark;
       this.currentturn = true;
       this.playerArr = 0;
       this.ename;
@@ -88,7 +85,7 @@
       return this.name;
     }
     getPlayerzeichen() {
-      return this.zeichen;
+      return this.mark;
     }
     getCurrentTurn() {
       return this.currentturn;
